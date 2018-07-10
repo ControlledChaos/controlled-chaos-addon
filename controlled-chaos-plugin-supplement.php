@@ -8,18 +8,18 @@
  * @version     1.0.0
  * @author      Greg Sweet <greg@ccdzine.com>
  * @copyright   Copyright © 2018, Greg Sweet
- * @link        https://github.com/ControlledChaos/controlled-chaos-plugin-supplement
+ * @link        https://github.com/ControlledChaos/controlled-chaos-supplement
  * @license     GPL-3.0+ http://www.gnu.org/licenses/gpl-3.0.txt
  *
  * Plugin Name: Controlled Chaos Plugin Supplement
- * Plugin URI:  https://github.com/ControlledChaos/controlled-chaos-plugin-supplement
+ * Plugin URI:  https://github.com/ControlledChaos/controlled-chaos-supplement
  * Description: Intended to extend Controlled Chaos Plugin.
  * Version:     1.0.0
  * Author:      Controlled Chaos Design
  * Author URI:  http://ccdzine.com/
  * License:     GPL-3.0+
  * License URI: https://www.gnu.org/licenses/gpl.txt
- * Text Domain: controlled-chaos-plugin-supplement
+ * Text Domain: controlled-chaos-supplement
  * Domain Path: /languages
  */
 
@@ -52,7 +52,7 @@ if ( ! defined( 'CCPS_VERSION' ) ) {
  * @return string Returns the URL slug of the admin pages.
  */
 if ( ! defined( 'CCPS_ADMIN_SLUG' ) ) {
-	define( 'CCPS_ADMIN_SLUG', 'controlled-chaos-plugin-supplement' );
+	define( 'CCPS_ADMIN_SLUG', 'controlled-chaos-supplement' );
 }
 
 /**

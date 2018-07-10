@@ -1,6 +1,6 @@
 <?php
 /**
- * The core plugin class.
+ * Define the internationalization functionality.
  *
  * @package    Controlled_Chaos_Plugin_Supplement
  * @subpackage Includes
@@ -16,16 +16,16 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// Get plugins path to check for active plugins.
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-
 /**
- * Define the core functionality of the plugin.
+ * Define the internationalization functionality.
+ *
+ * Loads and defines the internationalization files for this plugin
+ * so that it is ready for translation.
  *
  * @since  1.0.0
  * @access public
  */
-class Init {
+class i18n {
 
 	/**
 	 * Get an instance of the plugin class.
@@ -44,8 +44,9 @@ class Init {
 			// Set variable for new instance.
 			$instance = new self;
 
-			// Get class dependencies.
-			$instance->dependencies();
+			// Load the text domain.
+			$instance->load_plugin_textdomain();
+
 		}
 
 		// Return the instance.
@@ -58,27 +59,24 @@ class Init {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return self
+	 * @return void Constructor method is empty.
 	 */
 	public function __construct() {}
 
 	/**
-	 * Load the required dependencies for this plugin.
+	 * Load the plugin text domain for translation.
 	 *
 	 * @since  1.0.0
-	 * @access private
+	 * @access public
 	 * @return void
 	 */
-	private function dependencies() {
+	public function load_plugin_textdomain() {
 
-		// Translation functionality.
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-i18n.php';
-
-		// Admin/backend functionality, scripts and styles.
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-admin.php';
-
-		// Frontend functionality, scripts and styles.
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'frontend/class-frontend.php';
+		load_plugin_textdomain(
+			'controlled-chaos-supplement',
+			false,
+			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+		);
 
 	}
 
@@ -91,11 +89,11 @@ class Init {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccps_init() {
+function ccp_i18n() {
 
-	return Init::instance();
+	return i18n::instance();
 
 }
 
 // Run an instance of the class.
-ccps_init();
+ccp_i18n();
