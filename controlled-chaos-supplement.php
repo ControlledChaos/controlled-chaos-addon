@@ -270,14 +270,7 @@ function deactivate_controlled_chaos_supplement() {
 }
 
 /**
- * Add a link to the plugin's about page on the plugins page.
- *
- * The about page in its original form is intended to be read by
- * developers for getting familiar with the plugin, so it is
- * included in the admin menu under plugins.
- *
- * If you would like to link the page elsewhere as you make it your own then
- * do so in admin/class-admin-pages.php, in the about_plugin method.
+ * Add a link to the plugin's settings page on the plugins page.
  *
  * @param  array $links Default plugin links on the 'Plugins' admin page.
  * @since  1.0.0
@@ -290,64 +283,18 @@ function controlled_chaos_supplement_about_link( $links ) {
 
 	if ( ! is_network_admin() ) {
 		// Create new settings link array as a variable.
-		$about_page = [
+		$settings = [
 			sprintf(
-				'<a href="%1s" class="' . CCPS_ADMIN_SLUG . '-page-link">%2s</a>',
-				admin_url( 'plugins.php?page=' . CCPS_ADMIN_SLUG . '-page' ),
-				esc_attr( 'Documentation', 'controlled-chaos-supplement' )
+				'<a href="%1s" class="' . CCPS_ADMIN_SLUG . '-settings-link">%2s</a>',
+				admin_url( 'options-general.php?page=' . CCPS_ADMIN_SLUG . '-settings' ),
+				esc_attr( 'Settings', 'controlled-chaos-supplement' )
 			),
 		];
 
 		// Merge the new settings array with the default array.
-		return array_merge( $about_page, $links );
+		return array_merge( $settings, $links );
 	}
 
 }
 // Filter the default settings links with new array.
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'controlled_chaos_supplement_about_link' );
-
-/**
- * Add links to the plugin settings pages on the plugins page.
- *
- * Change the links to those which fill your needs.
- *
- * @param  array  $links Default plugin links on the 'Plugins' admin page.
- * @param  object $file Reference the root plugin file with header.
- * @since  1.0.0
- * @return mixed[] Returns HTML strings for the settings pages link.
- *                 Returns an array of custom links with the default plugin links.
- * @link   https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
- */
-function controlled_chaos_supplement_settings_links( $links, $file ) {
-
-	if ( $file == plugin_basename( __FILE__ ) ) {
-
-		// Add links to settings pages.
-		if ( ! is_network_admin() ) {
-			$links[] = sprintf(
-				'<a href="%1s" class="' . CCPS_ADMIN_SLUG . '-settings-link">%2s</a>',
-				admin_url( 'options-general.php?page=' . CCPS_ADMIN_SLUG . '-settings' ),
-				esc_attr( 'Site Settings', 'controlled-chaos-supplement' )
-			);
-			$links[] = sprintf(
-				'<a href="%1s" class="' . CCPS_ADMIN_SLUG . '-scripts-link">%2s</a>',
-				admin_url( 'options-general.php?page=' . CCPS_ADMIN_SLUG . '-scripts' ),
-				esc_attr( 'Script Options', 'controlled-chaos-supplement' )
-			);
-		}
-
-		// Add a placeholder for an upgrade link.
-		$links[] = sprintf(
-			'<a href="%1s" title="%2s" class="' . CCPS_ADMIN_SLUG . '-upgrade-link" style="color: #888; cursor: default;">%3s</a>',
-			''/* Add upgrade URL here */,
-			__( 'Upgrade not available', 'controlled-chaos-supplement' ),
-			esc_attr( 'Upgrade', 'controlled-chaos-supplement' )
-		);
-
-	}
-
-	// Return the full array of links.
-	return $links;
-
-}
-add_filter( 'plugin_row_meta', 'controlled_chaos_supplement_settings_links', 10, 2 );
