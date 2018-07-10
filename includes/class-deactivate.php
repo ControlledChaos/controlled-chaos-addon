@@ -75,7 +75,7 @@ class Controlled_Chaos_Addon_Deactivate {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccps_deactivate() {
+function cca_deactivate() {
 
 	return Controlled_Chaos_Addon_Deactivate::instance();
 

@@ -87,11 +87,11 @@ class Frontend {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccps_frontend() {
+function cca_frontend() {
 
 	return Frontend::instance();
 
 }
 
 // Run an instance of the class.
-ccps_frontend();
+cca_frontend();

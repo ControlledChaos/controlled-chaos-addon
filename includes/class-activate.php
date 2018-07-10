@@ -75,7 +75,7 @@ class Controlled_Chaos_Addon_Activate {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccps_activate() {
+function cca_activate() {
 
 	return Controlled_Chaos_Addon_Activate::instance();
 

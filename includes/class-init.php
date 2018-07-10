@@ -91,11 +91,11 @@ class Init {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccps_init() {
+function cca_init() {
 
 	return Init::instance();
 
 }
 
 // Run an instance of the class.
-ccps_init();
+cca_init();

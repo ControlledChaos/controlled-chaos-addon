@@ -38,8 +38,8 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
  * @since  1.0.0
  * @return string Returns the plugin path of the parent.
  */
-if ( ! defined( 'CCPS_PARENT' ) ) {
-	define( 'CCPS_PARENT', 'controlled-chaos-plugin/controlled-chaos-plugin.php' );
+if ( ! defined( 'CCA_PARENT' ) ) {
+	define( 'CCA_PARENT', 'controlled-chaos-plugin/controlled-chaos-plugin.php' );
 }
 
 /**
@@ -50,8 +50,8 @@ if ( ! defined( 'CCPS_PARENT' ) ) {
  * @since  1.0.0
  * @return string Returns the parent plugin name.
  */
-if ( ! defined( 'CCPS_PARENT_NAME' ) ) {
-	define( 'CCPS_PARENT_NAME', 'Controlled Chaos Plugin' );
+if ( ! defined( 'CCA_PARENT_NAME' ) ) {
+	define( 'CCA_PARENT_NAME', 'Controlled Chaos Plugin' );
 }
 
 /**
@@ -62,8 +62,8 @@ if ( ! defined( 'CCPS_PARENT_NAME' ) ) {
  * @since  1.0.0
  * @return string Returns the child plugin name.
  */
-if ( ! defined( 'CCPS_CHILD_NAME' ) ) {
-	define( 'CCPS_CHILD_NAME', 'Controlled Chaos Addon' );
+if ( ! defined( 'CCA_CHILD_NAME' ) ) {
+	define( 'CCA_CHILD_NAME', 'Controlled Chaos Addon' );
 }
 
 /**
@@ -80,8 +80,8 @@ if ( ! defined( 'CCPS_CHILD_NAME' ) ) {
  * @since  1.0.0
  * @return void
  */
-if ( ! is_plugin_active( CCPS_PARENT ) ) {
-	add_action( 'admin_notices', 'ccps_parent_notice' );
+if ( ! is_plugin_active( CCA_PARENT ) ) {
+	add_action( 'admin_notices', 'cca_parent_notice' );
 }
 
 /**
@@ -90,7 +90,7 @@ if ( ! is_plugin_active( CCPS_PARENT ) ) {
  * @since  1.0.0
  * @return void
  */
-function ccps_parent_notice() {
+function cca_parent_notice() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/partials/parent-notice.php';
 }
 
@@ -100,7 +100,7 @@ function ccps_parent_notice() {
  * @since  1.0.0
  * @return void
  */
-if ( ! is_plugin_active( CCPS_PARENT ) ) {
+if ( ! is_plugin_active( CCA_PARENT ) ) {
 	return;
 }
 
@@ -111,8 +111,8 @@ if ( ! is_plugin_active( CCPS_PARENT ) ) {
  * @since  1.0.0
  * @return string Returns the latest plugin version.
  */
-if ( ! defined( 'CCPS_VERSION' ) ) {
-	define( 'CCPS_VERSION', '1.0.0' );
+if ( ! defined( 'CCA_VERSION' ) ) {
+	define( 'CCA_VERSION', '1.0.0' );
 }
 
 /**
@@ -127,8 +127,8 @@ if ( ! defined( 'CCPS_VERSION' ) ) {
  * @since  1.0.0
  * @return string Returns the URL slug of the admin pages.
  */
-if ( ! defined( 'CCPS_ADMIN_SLUG' ) ) {
-	define( 'CCPS_ADMIN_SLUG', 'controlled-chaos-addon' );
+if ( ! defined( 'CCA_ADMIN_SLUG' ) ) {
+	define( 'CCA_ADMIN_SLUG', 'controlled-chaos-addon' );
 }
 
 /**
@@ -139,9 +139,9 @@ if ( ! defined( 'CCPS_ADMIN_SLUG' ) ) {
  * @since  1.0.0
  * @return string Returns the URL of the image.
  */
-if ( ! defined( 'CCPS_DEFAULT_META_IMAGE' ) ) {
+if ( ! defined( 'CCA_DEFAULT_META_IMAGE' ) ) {
 	define(
-		'CCPS_DEFAULT_META_IMAGE',
+		'CCA_DEFAULT_META_IMAGE',
 		plugins_url( 'frontend/assets/images/default-meta-image.jpg', __FILE__ )
 	);
 }
@@ -222,14 +222,14 @@ class Controlled_Chaos_Addon {
  * @access public
  * @return object Returns the instance of the `Controlled_Chaos_Addon` class.
  */
-function ccps_plugin() {
+function cca_plugin() {
 
 	return Controlled_Chaos_Addon::instance();
 
 }
 
 // Begin plugin functionality.
-ccps_plugin();
+cca_plugin();
 
 /**
  * Register the activaction & deactivation hooks.
@@ -251,7 +251,7 @@ register_deactivation_hook( __FILE__, '\deactivate_controlled_chaos' );
 function activate_controlled_chaos_addon() {
 
 	// Run the activation class.
-	ccps_activate();
+	cca_activate();
 
 }
 
@@ -265,7 +265,7 @@ function activate_controlled_chaos_addon() {
 function deactivate_controlled_chaos_addon() {
 
 	// Run the deactivation class.
-	ccps_deactivate();
+	cca_deactivate();
 
 }
 
@@ -285,8 +285,8 @@ function controlled_chaos_addon_about_link( $links ) {
 		// Create new settings link array as a variable.
 		$settings = [
 			sprintf(
-				'<a href="%1s" class="' . CCPS_ADMIN_SLUG . '-settings-link">%2s</a>',
-				admin_url( 'options-general.php?page=' . CCPS_ADMIN_SLUG . '-settings' ),
+				'<a href="%1s" class="' . CCA_ADMIN_SLUG . '-settings-link">%2s</a>',
+				admin_url( 'options-general.php?page=' . CCA_ADMIN_SLUG . '-settings' ),
 				esc_attr( 'Settings', 'controlled-chaos-addon' )
 			),
 		];

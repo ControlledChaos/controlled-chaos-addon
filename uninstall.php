@@ -24,16 +24,16 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
  * @access public
  * @return void
  */
-function ccps_user_avatars_uninstall() {
+function cca_user_avatars_uninstall() {
 
-	$ccps_user_avatars = new ccps_user_avatars;
+	$cca_user_avatars = new cca_user_avatars;
 	$users            = get_users_of_blog();
 
 	foreach ( $users as $user ) {
-		$ccps_user_avatars->avatar_delete( $user->user_id );
+		$cca_user_avatars->avatar_delete( $user->user_id );
 	}
 
-	delete_option( 'ccps_user_avatars_caps' );
+	delete_option( 'cca_user_avatars_caps' );
 
 }
-register_uninstall_hook( __FILE__, 'ccps_user_avatars_uninstall' );
+register_uninstall_hook( __FILE__, 'cca_user_avatars_uninstall' );
