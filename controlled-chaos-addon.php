@@ -1,6 +1,6 @@
 <?php
 /**
- * Controlled Chaos starter plugin
+ * Controlled Chaos Addon starter plugin
  *
  * Change this header information to suit your needs.
  *
