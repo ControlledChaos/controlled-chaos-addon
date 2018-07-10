@@ -4,23 +4,23 @@
  *
  * Change this header information to suit your needs.
  *
- * @package     Controlled_Chaos_Supplement
+ * @package     Controlled_Chaos_Addon
  * @version     1.0.0
  * @author      Greg Sweet <greg@ccdzine.com>
  * @copyright   Copyright © 2018, Greg Sweet
- * @link        https://github.com/ControlledChaos/controlled-chaos-supplement
+ * @link        https://github.com/ControlledChaos/controlled-chaos-addon
  * @link        https://github.com/ControlledChaos/controlled-chaos-plugin
  * @license     GPL-3.0+ http://www.gnu.org/licenses/gpl-3.0.txt
  *
- * Plugin Name: Controlled Chaos Plugin Supplement
- * Plugin URI:  https://github.com/ControlledChaos/controlled-chaos-supplement
+ * Plugin Name: Controlled Chaos Plugin Addon
+ * Plugin URI:  https://github.com/ControlledChaos/controlled-chaos-addon
  * Description: Intended to extend Controlled Chaos Plugin.
  * Version:     1.0.0
  * Author:      Controlled Chaos Design
  * Author URI:  http://ccdzine.com/
  * License:     GPL-3.0+
  * License URI: https://www.gnu.org/licenses/gpl.txt
- * Text Domain: controlled-chaos-supplement
+ * Text Domain: controlled-chaos-addon
  * Domain Path: /languages
  */
 
@@ -63,7 +63,7 @@ if ( ! defined( 'CCPS_PARENT_NAME' ) ) {
  * @return string Returns the child plugin name.
  */
 if ( ! defined( 'CCPS_CHILD_NAME' ) ) {
-	define( 'CCPS_CHILD_NAME', 'Controlled Chaos Supplement' );
+	define( 'CCPS_CHILD_NAME', 'Controlled Chaos Addon' );
 }
 
 /**
@@ -128,7 +128,7 @@ if ( ! defined( 'CCPS_VERSION' ) ) {
  * @return string Returns the URL slug of the admin pages.
  */
 if ( ! defined( 'CCPS_ADMIN_SLUG' ) ) {
-	define( 'CCPS_ADMIN_SLUG', 'controlled-chaos-supplement' );
+	define( 'CCPS_ADMIN_SLUG', 'controlled-chaos-addon' );
 }
 
 /**
@@ -155,7 +155,7 @@ if ( ! defined( 'CCPS_DEFAULT_META_IMAGE' ) ) {
  * @since  1.0.0
  * @access public
  */
-class Controlled_Chaos_Supplement {
+class Controlled_Chaos_Addon {
 
 	/**
 	 * Get an instance of the plugin class.
@@ -220,11 +220,11 @@ class Controlled_Chaos_Supplement {
  *
  * @since  1.0.0
  * @access public
- * @return object Returns the instance of the `Controlled_Chaos_Supplement` class.
+ * @return object Returns the instance of the `Controlled_Chaos_Addon` class.
  */
 function ccps_plugin() {
 
-	return Controlled_Chaos_Supplement::instance();
+	return Controlled_Chaos_Addon::instance();
 
 }
 
@@ -248,7 +248,7 @@ register_deactivation_hook( __FILE__, '\deactivate_controlled_chaos' );
  * @access public
  * @return void
  */
-function activate_controlled_chaos_supplement() {
+function activate_controlled_chaos_addon() {
 
 	// Run the activation class.
 	ccps_activate();
@@ -262,7 +262,7 @@ function activate_controlled_chaos_supplement() {
  * @access public
  * @return void
  */
-function deactivate_controlled_chaos_supplement() {
+function deactivate_controlled_chaos_addon() {
 
 	// Run the deactivation class.
 	ccps_deactivate();
@@ -279,7 +279,7 @@ function deactivate_controlled_chaos_supplement() {
  *                 Returns an array of the settings link with the default plugin links.
  * @link   https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
  */
-function controlled_chaos_supplement_about_link( $links ) {
+function controlled_chaos_addon_about_link( $links ) {
 
 	if ( ! is_network_admin() ) {
 		// Create new settings link array as a variable.
@@ -287,7 +287,7 @@ function controlled_chaos_supplement_about_link( $links ) {
 			sprintf(
 				'<a href="%1s" class="' . CCPS_ADMIN_SLUG . '-settings-link">%2s</a>',
 				admin_url( 'options-general.php?page=' . CCPS_ADMIN_SLUG . '-settings' ),
-				esc_attr( 'Settings', 'controlled-chaos-supplement' )
+				esc_attr( 'Settings', 'controlled-chaos-addon' )
 			),
 		];
 
@@ -297,4 +297,4 @@ function controlled_chaos_supplement_about_link( $links ) {
 
 }
 // Filter the default settings links with new array.
-add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'controlled_chaos_supplement_about_link' );
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'controlled_chaos_addon_about_link' );

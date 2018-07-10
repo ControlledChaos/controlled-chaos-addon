@@ -2,14 +2,14 @@
 /**
  * Define the internationalization functionality.
  *
- * @package    Controlled_Chaos_Supplement
+ * @package    Controlled_Chaos_Addon
  * @subpackage Includes
  *
  * @since      1.0.0
  * @author     Greg Sweet <greg@ccdzine.com>
  */
 
-namespace CC_Supplement\Includes;
+namespace CC_Addon\Includes;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -73,7 +73,7 @@ class i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'controlled-chaos-supplement',
+			'controlled-chaos-addon',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

@@ -2,14 +2,14 @@
 /**
  * Admin functiontionality and settings.
  *
- * @package    Controlled_Chaos_Supplement
+ * @package    Controlled_Chaos_Addon
  * @subpackage Admin
  *
  * @since      1.0.0
  * @author     Greg Sweet <greg@ccdzine.com>
  */
 
-namespace CC_Supplement\Admin;
+namespace CC_Addon\Admin;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {

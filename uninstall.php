@@ -2,7 +2,7 @@
 /**
  * Fired when the plugin is uninstalled.
  *
- * @package    Controlled_Chaos_Supplement
+ * @package    Controlled_Chaos_Addon
  * @subpackage Admin
  *
  * @since      1.0.0

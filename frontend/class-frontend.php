@@ -2,14 +2,14 @@
 /**
  * The frontend functionality of the plugin.
  *
- * @package    Controlled_Chaos_Supplement
+ * @package    Controlled_Chaos_Addon
  * @subpackage Frontend
  *
  * @since      1.0.0
  * @author     Greg Sweet <greg@ccdzine.com>
  */
 
-namespace CC_Supplement\Frontend;
+namespace CC_Addon\Frontend;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {

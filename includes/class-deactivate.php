@@ -7,7 +7,7 @@
  * @link       http://ccdzine.com
  * @since      1.0.0
  *
- * @package    Controlled_Chaos_Supplement
+ * @package    Controlled_Chaos_Addon
  * @subpackage Includes
  */
 
@@ -22,7 +22,7 @@ if ( ! defined( 'WPINC' ) ) {
  * @since  1.0.0
  * @access public
  */
-class Controlled_Chaos_Supplement_Deactivate {
+class Controlled_Chaos_Addon_Deactivate {
 
 	/**
 	 * Get an instance of the plugin class.
@@ -77,6 +77,6 @@ class Controlled_Chaos_Supplement_Deactivate {
  */
 function ccps_deactivate() {
 
-	return Controlled_Chaos_Supplement_Deactivate::instance();
+	return Controlled_Chaos_Addon_Deactivate::instance();
 
 }

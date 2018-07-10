@@ -4,7 +4,7 @@
  *
  * This file must not be namespaced.
  *
- * @package    Controlled_Chaos_Supplement
+ * @package    Controlled_Chaos_Addon
  * @subpackage Includes
  *
  * @since      1.0.0
@@ -22,7 +22,7 @@ if ( ! defined( 'WPINC' ) ) {
  * @since  1.0.0
  * @access public
  */
-class Controlled_Chaos_Supplement_Activate {
+class Controlled_Chaos_Addon_Activate {
 
 	/**
 	 * Get an instance of the plugin class.
@@ -77,6 +77,6 @@ class Controlled_Chaos_Supplement_Activate {
  */
 function ccps_activate() {
 
-	return Controlled_Chaos_Supplement_Activate::instance();
+	return Controlled_Chaos_Addon_Activate::instance();
 
 }
