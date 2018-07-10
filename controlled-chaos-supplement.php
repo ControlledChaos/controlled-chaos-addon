@@ -9,6 +9,7 @@
  * @author      Greg Sweet <greg@ccdzine.com>
  * @copyright   Copyright © 2018, Greg Sweet
  * @link        https://github.com/ControlledChaos/controlled-chaos-supplement
+ * @link        https://github.com/ControlledChaos/controlled-chaos-plugin
  * @license     GPL-3.0+ http://www.gnu.org/licenses/gpl-3.0.txt
  *
  * Plugin Name: Controlled Chaos Plugin Supplement
@@ -26,6 +27,81 @@
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
+}
+
+// Get plugins path to check for active plugins.
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+/**
+ * Define the parent plugin path: directory and core file name.
+ *
+ * @since  1.0.0
+ * @return string Returns the plugin path of the parent.
+ */
+if ( ! defined( 'CCPS_PARENT' ) ) {
+	define( 'CCPS_PARENT', 'controlled-chaos-plugin/controlled-chaos-plugin.php' );
+}
+
+/**
+ * Define the parent plugin name.
+ *
+ * Used in admin notices
+ *
+ * @since  1.0.0
+ * @return string Returns the parent plugin name.
+ */
+if ( ! defined( 'CCPS_PARENT_NAME' ) ) {
+	define( 'CCPS_PARENT_NAME', 'Controlled Chaos Plugin' );
+}
+
+/**
+ * Define the child [this] plugin name.
+ *
+ * Used in admin notices
+ *
+ * @since  1.0.0
+ * @return string Returns the child plugin name.
+ */
+if ( ! defined( 'CCPS_CHILD_NAME' ) ) {
+	define( 'CCPS_CHILD_NAME', 'Controlled Chaos Supplement' );
+}
+
+/**
+ * Check for the plugin dependency.
+ *
+ * This plugin, in its original form, works with Controlled Chaos Plugin.
+ * If you have renamed the parent plugin then change the following check
+ * to your new directory name and core plugin file name.
+ *
+ * @link   https://github.com/ControlledChaos/controlled-chaos-plugin
+ *
+ * Add an admin error notice if the parent plugin is not active.
+ *
+ * @since  1.0.0
+ * @return void
+ */
+if ( ! is_plugin_active( CCPS_PARENT ) ) {
+	add_action( 'admin_notices', 'ccps_parent_notice' );
+}
+
+/**
+ * Get the parent plugin admin notice output.
+ *
+ * @since  1.0.0
+ * @return void
+ */
+function ccps_parent_notice() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/partials/parent-notice.php';
+}
+
+/**
+ * If the parent plugin is not active then stop here.
+ *
+ * @since  1.0.0
+ * @return void
+ */
+if ( ! is_plugin_active( CCPS_PARENT ) ) {
+	return;
 }
 
 /**
@@ -218,7 +294,7 @@ function controlled_chaos_supplement_about_link( $links ) {
 			sprintf(
 				'<a href="%1s" class="' . CCPS_ADMIN_SLUG . '-page-link">%2s</a>',
 				admin_url( 'plugins.php?page=' . CCPS_ADMIN_SLUG . '-page' ),
-				esc_attr( 'Documentation', 'controlled-chaos-plugin' )
+				esc_attr( 'Documentation', 'controlled-chaos-supplement' )
 			),
 		];
 
@@ -251,12 +327,12 @@ function controlled_chaos_supplement_settings_links( $links, $file ) {
 			$links[] = sprintf(
 				'<a href="%1s" class="' . CCPS_ADMIN_SLUG . '-settings-link">%2s</a>',
 				admin_url( 'options-general.php?page=' . CCPS_ADMIN_SLUG . '-settings' ),
-				esc_attr( 'Site Settings', 'controlled-chaos-plugin' )
+				esc_attr( 'Site Settings', 'controlled-chaos-supplement' )
 			);
 			$links[] = sprintf(
 				'<a href="%1s" class="' . CCPS_ADMIN_SLUG . '-scripts-link">%2s</a>',
 				admin_url( 'options-general.php?page=' . CCPS_ADMIN_SLUG . '-scripts' ),
-				esc_attr( 'Script Options', 'controlled-chaos-plugin' )
+				esc_attr( 'Script Options', 'controlled-chaos-supplement' )
 			);
 		}
 
@@ -264,8 +340,8 @@ function controlled_chaos_supplement_settings_links( $links, $file ) {
 		$links[] = sprintf(
 			'<a href="%1s" title="%2s" class="' . CCPS_ADMIN_SLUG . '-upgrade-link" style="color: #888; cursor: default;">%3s</a>',
 			''/* Add upgrade URL here */,
-			__( 'Upgrade not available', 'controlled-chaos-plugin' ),
-			esc_attr( 'Upgrade', 'controlled-chaos-plugin' )
+			__( 'Upgrade not available', 'controlled-chaos-supplement' ),
+			esc_attr( 'Upgrade', 'controlled-chaos-supplement' )
 		);
 
 	}
