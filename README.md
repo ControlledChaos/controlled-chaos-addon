@@ -1,6 +1,6 @@
 # Controlled Chaos Supplement
 
-A WordPress child plugin.
+A WordPress child or addon starter plugin.
 
 ![WordPress](https://img.shields.io/wordpress/v/akismet.svg?style=flat-square)
 ![PHP version](https://img.shields.io/php-eye/symfony/symfony.svg?style=flat-square)
