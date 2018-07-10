@@ -2,7 +2,7 @@
 /**
  * Define the internationalization functionality.
  *
- * @package    Controlled_Chaos_Plugin_Supplement
+ * @package    Controlled_Chaos_Supplement
  * @subpackage Includes
  *
  * @since      1.0.0
@@ -89,11 +89,11 @@ class i18n {
  * @access public
  * @return object Returns an instance of the class.
  */
-function ccp_i18n() {
+function ccps_i18n() {
 
 	return i18n::instance();
 
 }
 
 // Run an instance of the class.
-ccp_i18n();
+ccps_i18n();
