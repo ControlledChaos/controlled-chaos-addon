@@ -29,7 +29,12 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// Get plugins path to check for active plugins.
+/**
+ * Get plugins path to check for active plugins.
+ *
+ * @since  1.0.0
+ * @return void
+ */
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 /**
