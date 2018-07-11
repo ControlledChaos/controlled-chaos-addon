@@ -105,11 +105,9 @@ class Settings {
 
 		// Get the active tab.
 		if ( isset( $_GET[ 'tab' ] ) ) {
-
-			if ( isset( $_GET[ 'tab' ] ) ) {
-				$active_tab = $_GET[ 'tab' ];
-			}
-
+			$active_tab = $_GET[ 'tab' ];
+		} else {
+			$active_tab = 'dashboard';
 		}
 
 		// Add the tab as an array to be merged.
@@ -138,11 +136,9 @@ class Settings {
 
 		// Get the active tab.
 		if ( isset( $_GET[ 'tab' ] ) ) {
-
-			if ( isset( $_GET[ 'tab' ] ) ) {
-				$active_tab = $_GET[ 'tab' ];
-			}
-
+			$active_tab = $_GET[ 'tab' ];
+		} else {
+			$active_tab = 'dashboard';
 		}
 
 		// Return new settings section if on the new tab.
@@ -167,11 +163,9 @@ class Settings {
 
 		// Get the active tab.
 		if ( isset( $_GET[ 'tab' ] ) ) {
-
-			if ( isset( $_GET[ 'tab' ] ) ) {
-				$active_tab = $_GET[ 'tab' ];
-			}
-
+			$active_tab = $_GET[ 'tab' ];
+		} else {
+			$active_tab = 'dashboard';
 		}
 
 		// Return new settings section if on the new tab.
@@ -196,11 +190,9 @@ class Settings {
 
 		// Get the active tab.
 		if ( isset( $_GET[ 'tab' ] ) ) {
-
-			if ( isset( $_GET[ 'tab' ] ) ) {
-				$active_tab = $_GET[ 'tab' ];
-			}
-
+			$active_tab = $_GET[ 'tab' ];
+		} else {
+			$active_tab = 'dashboard';
 		}
 
 		// Return new button text if on the new tab.
