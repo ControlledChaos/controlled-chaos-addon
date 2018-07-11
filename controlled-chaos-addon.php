@@ -48,6 +48,21 @@ if ( ! defined( 'CCA_PARENT' ) ) {
 }
 
 /**
+ * Define the parent plugin prefix for options.
+ *
+ * The default prefix of Controlled Chaos Plugin is `ccp`. If you
+ * have rename the parent plugin the change the prefix here.
+ *
+ * Do not include a trailing hyphen (-) or an trailibg underscore (_).
+ *
+ * @since  1.0.0
+ * @return string Returns the prefix without.
+ */
+if ( ! defined( 'CCA_PARENT_PREFIX' ) ) {
+	define( 'CCA_PARENT_PREFIX', 'ccp' );
+}
+
+/**
  * Define the parent plugin name.
  *
  * Used in admin notices
@@ -86,7 +101,9 @@ if ( ! defined( 'CCA_CHILD_NAME' ) ) {
  * @return void
  */
 if ( ! is_plugin_active( CCA_PARENT ) ) {
+
 	add_action( 'admin_notices', 'cca_parent_notice' );
+
 }
 
 /**
@@ -96,7 +113,9 @@ if ( ! is_plugin_active( CCA_PARENT ) ) {
  * @return void
  */
 function cca_parent_notice() {
+
 	require_once plugin_dir_path( __FILE__ ) . 'includes/partials/parent-notice.php';
+
 }
 
 /**

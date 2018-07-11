@@ -88,13 +88,13 @@ class Settings_Fields_Site {
 		 * @since 1.0.0
 		 */
 
-		// Site Settings page position.
+		// Hide this plugin's settings page.
 		add_settings_field(
 			'cca_hide_addon_settings',
 			__( 'Hide Addon Settings', 'controlled-chaos-addon' ),
 			[ $this, 'cca_hide_addon_settings_callback' ],
-			'ccp-site-admin-menu',
-			'ccp-site-admin-menu',
+			CCA_PARENT_PREFIX . '-site-admin-menu',
+			CCA_PARENT_PREFIX . '-site-admin-menu',
 			[ sprintf(
 				'%1s %2s %3s',
 				esc_html__( 'Hide the', 'controlled-chaos-addon' ),
@@ -104,14 +104,14 @@ class Settings_Fields_Site {
 		);
 
 		register_setting(
-			'ccp-site-admin-menu',
+			CCA_PARENT_PREFIX . '-site-admin-menu',
 			'cca_hide_addon_settings'
 		);
 
 	}
 
 	/**
-	 * Site Settings page position.
+	 * Hide this plugin's settings page.
 	 *
 	 * @since  1.0.0
 	 * @access public
