@@ -58,7 +58,21 @@ class Settings {
 	 * @access public
 	 * @return void Constructor method is empty.
 	 */
-	public function __construct() {}
+	public function __construct() {
+
+		// Add tab to site settings page.
+		add_filter( CCA_PARENT_PREFIX . '_tabs_site_settings', [ $this, 'site_settings_tab' ], 11 );
+
+		// Do the settings section for the new tab.
+		add_filter( CCA_PARENT_PREFIX . '_section_site_settings', [ $this, 'site_settings_section' ], 11 );
+
+		// Do the settings fields for the new tab.
+		add_filter( CCA_PARENT_PREFIX . '_fields_site_settings', [ $this, 'site_settings_fields' ], 11 );
+
+		// Addon tab save button text.
+		add_filter( CCA_PARENT_PREFIX . '_save_site_settings', [ $this, 'site_settings_save' ], 11 );
+
+	}
 
 	/**
 	 * Class dependency files.
@@ -77,6 +91,126 @@ class Settings {
 
 		// Settings fields for site customization.
 		require_once plugin_dir_path( __FILE__ ) . 'class-settings-fields-site.php';
+
+	}
+
+	/**
+	 * Add a demo tab to the Site Settings page of the parent plugin.
+	 *
+	 * @since  1.0.0
+	 * @param  array $tabs
+	 * @return array
+	 */
+	public function site_settings_tab( $tabs ) {
+
+		// Get the active tab.
+		if ( isset( $_GET[ 'tab' ] ) ) {
+
+			if ( isset( $_GET[ 'tab' ] ) ) {
+				$active_tab = $_GET[ 'tab' ];
+			}
+
+		}
+
+		// Add the tab as an array to be merged.
+		$addons_tab = [
+			sprintf(
+				'<a href="?page=%1s-settings&tab=addons" class="nav-tab %2s"><span class="dashicons dashicons-plus"></span> %3s</a>',
+				CCP_ADMIN_SLUG,
+				$active_tab == 'addons' ? 'nav-tab-active' : '',
+				esc_html__( 'Addons', 'controlled-chaos-addon' )
+			)
+		];
+
+		// Merge the new tab array with the parent plugin's tab array.
+		return array_merge( $tabs, $addons_tab );
+
+	}
+
+	/**
+	 * Settings section for the new settings tab.
+	 *
+	 * @since  1.0.0
+	 * @param  string $section
+	 * @return string Returns the name of the settings section.
+	 */
+	public function site_settings_section( $section ) {
+
+		// Get the active tab.
+		if ( isset( $_GET[ 'tab' ] ) ) {
+
+			if ( isset( $_GET[ 'tab' ] ) ) {
+				$active_tab = $_GET[ 'tab' ];
+			}
+
+		}
+
+		// Return new settings section if on the new tab.
+		if ( 'addons' == $active_tab ) {
+			$section = '';
+			return $section;
+		}
+
+		// Otherwise return the parent settings sections.
+		return $section;
+
+	}
+
+	/**
+	 * Settings fields for the new settings tab.
+	 *
+	 * @since  1.0.0
+	 * @param  string $fields
+	 * @return string Returns the name of the settings section.
+	 */
+	public function site_settings_fields( $fields ) {
+
+		// Get the active tab.
+		if ( isset( $_GET[ 'tab' ] ) ) {
+
+			if ( isset( $_GET[ 'tab' ] ) ) {
+				$active_tab = $_GET[ 'tab' ];
+			}
+
+		}
+
+		// Return new settings section if on the new tab.
+		if ( 'addons' == $active_tab ) {
+			$fields = '';
+			return $fields;
+		}
+
+		// Otherwise return the parent settings sections.
+		return $fields;
+
+	}
+
+	/**
+	 * Save button text for the new settings tab.
+	 *
+	 * @since  1.0.0
+	 * @param  string $save
+	 * @return string Returns the button text.
+	 */
+	public function site_settings_save( $save ) {
+
+		// Get the active tab.
+		if ( isset( $_GET[ 'tab' ] ) ) {
+
+			if ( isset( $_GET[ 'tab' ] ) ) {
+				$active_tab = $_GET[ 'tab' ];
+			}
+
+		}
+
+		// Return new button text if on the new tab.
+		if ( 'addons' == $active_tab ) {
+			$save = __( 'Save Addons', 'controlled-chaos-addon' );
+			return $save;
+		}
+
+		// Otherwise return the parent button text.
+		return $save;
 
 	}
 
