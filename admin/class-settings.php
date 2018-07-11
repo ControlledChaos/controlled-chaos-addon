@@ -147,7 +147,7 @@ class Settings {
 
 		// Return new settings section if on the new tab.
 		if ( 'addons' == $active_tab ) {
-			$section = '';
+			$section = 'cca-site-addons';
 			return $section;
 		}
 
@@ -176,7 +176,7 @@ class Settings {
 
 		// Return new settings section if on the new tab.
 		if ( 'addons' == $active_tab ) {
-			$fields = '';
+			$fields = 'cca-site-addons';
 			return $fields;
 		}
 

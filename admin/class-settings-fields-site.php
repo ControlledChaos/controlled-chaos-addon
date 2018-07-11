@@ -83,6 +83,32 @@ class Settings_Fields_Site {
 	public function settings() {
 
 		/**
+		 * Add a settings section for the new tab.
+		 *
+		 * @since 1.0.0
+		 */
+		add_settings_section(
+			'cca-site-addons',
+			sprintf(
+				'%1s %2s',
+				get_bloginfo( 'name' ),
+				__( 'Addons', 'controlled-chaos-addon' )
+			),
+			[],
+			'cca-site-addons'
+		);
+
+		// Add a demo field to the new section.
+		add_settings_field(
+			'cca_demo_addon_field',
+			__( 'Demo Field', 'controlled-chaos-addon' ),
+			[ $this, 'cca_demo_addon_field_callback' ],
+			'cca-site-addons',
+			'cca-site-addons',
+			[ esc_html__( 'Check this box', 'controlled-chaos-addon' ) ]
+		);
+
+		/**
 		 * Admin menu settings.
 		 *
 		 * @since 1.0.0
@@ -111,12 +137,32 @@ class Settings_Fields_Site {
 	}
 
 	/**
+	 * Demo field in the new section.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  array $args Extra arguments passed into the callback function.
+	 * @return mixed[]
+	 */
+	public function cca_demo_addon_field_callback( $args ) {
+
+		$option = get_option( 'cca_demo_addon_field' );
+
+		$html = '<p><input type="checkbox" id="cca_demo_addon_field" name="cca_demo_addon_field" value="1" ' . checked( 1, $option, false ) . '/>';
+
+		$html .= '<label for="cca_demo_addon_field"> '  . $args[0] . '</label></p>';
+
+		echo $html;
+
+	}
+
+	/**
 	 * Hide this plugin's settings page.
 	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @param  array $args Extra arguments passed into the callback function.
-	 * @return string
+	 * @return mixed[]
 	 */
 	public function cca_hide_addon_settings_callback( $args ) {
 
