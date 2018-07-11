@@ -79,6 +79,12 @@ class Admin {
 			add_action( 'admin_menu', [ $this, 'settings_page' ] );
 		}
 
+		// Enqueue backend styles. Uncomment to use.
+		// add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ] );
+
+		// Enqueue backend scripts. Uncomment to use.
+		// add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+
 	}
 
 	/**
@@ -128,7 +134,35 @@ class Admin {
 
         require plugin_dir_path( __FILE__ ) . 'partials/plugin-settings_page.php';
 
-    }
+	}
+
+	/**
+	 * Enqueue the stylesheets for the back end of the site.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function enqueue_styles() {
+
+		// Frontend plugin styles.
+		wp_enqueue_style( 'controlled-chaos-addon', plugin_dir_url( __FILE__ ) . 'assets/css/admin.css', [], CCA_VERSION, 'all' );
+
+	}
+
+	/**
+	 * Enqueue the scripts for the back end of the site.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function enqueue_scripts() {
+
+		// Frontend plugin script.
+		wp_enqueue_script( 'controlled-chaos-addon', plugin_dir_url( __FILE__ ) . 'assets/js/admin.js', [ 'jquery' ], CCA_VERSION, true );
+
+	}
 
 }
 

@@ -63,7 +63,15 @@ class Frontend {
 	 * @access public
 	 * @return self
 	 */
-	public function __construct() {}
+	public function __construct() {
+
+		// Enqueue frontend styles. Uncomment to use.
+		// add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ] );
+
+		// Enqueue frontend scripts. Uncomment to use.
+		// add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+
+	}
 
 	/**
 	 * Class dependency files.
@@ -72,9 +80,33 @@ class Frontend {
 	 * @access private
 	 * @return void
 	 */
-	private function dependencies() {
+	private function dependencies() {}
 
+	/**
+	 * Enqueue the stylesheets for the front end of the site.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function enqueue_styles() {
 
+		// Frontend plugin styles.
+		wp_enqueue_style( 'controlled-chaos-addon', plugin_dir_url( __FILE__ ) . 'assets/css/frontend.css', [], CCA_VERSION, 'all' );
+
+	}
+
+	/**
+	 * Enqueue the scripts for the front end of the site.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function enqueue_scripts() {
+
+		// Frontend plugin script.
+		wp_enqueue_script( 'controlled-chaos-addon', plugin_dir_url( __FILE__ ) . 'assets/js/frontend.js', [ 'jquery' ], CCA_VERSION, true );
 
 	}
 
