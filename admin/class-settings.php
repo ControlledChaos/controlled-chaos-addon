@@ -111,17 +111,17 @@ class Settings {
 		}
 
 		// Add the tab as an array to be merged.
-		$addons_tab = [
+		$extended_tab = [
 			sprintf(
-				'<a href="?page=%1s-settings&tab=addons" class="nav-tab %2s"><span class="dashicons dashicons-plus"></span> %3s</a>',
+				'<a href="?page=%1s-settings&tab=extended" class="nav-tab %2s"><span class="dashicons dashicons-lightbulb"></span> %3s</a>',
 				CCP_ADMIN_SLUG,
-				$active_tab == 'addons' ? 'nav-tab-active' : '',
-				esc_html__( 'Addons', 'controlled-chaos-addon' )
+				$active_tab == 'extended' ? 'nav-tab-active' : '',
+				esc_html__( 'Extended', 'controlled-chaos-addon' )
 			)
 		];
 
 		// Merge the new tab array with the parent plugin's tab array.
-		return array_merge( $tabs, $addons_tab );
+		return array_merge( $tabs, $extended_tab );
 
 	}
 
@@ -142,8 +142,8 @@ class Settings {
 		}
 
 		// Return new settings section if on the new tab.
-		if ( 'addons' == $active_tab ) {
-			$section = 'cca-site-addons';
+		if ( 'extended' == $active_tab ) {
+			$section = 'cca-site-extended';
 			return $section;
 		}
 
@@ -169,8 +169,8 @@ class Settings {
 		}
 
 		// Return new settings section if on the new tab.
-		if ( 'addons' == $active_tab ) {
-			$fields = 'cca-site-addons';
+		if ( 'extended' == $active_tab ) {
+			$fields = 'cca-site-extended';
 			return $fields;
 		}
 
@@ -196,8 +196,8 @@ class Settings {
 		}
 
 		// Return new button text if on the new tab.
-		if ( 'addons' == $active_tab ) {
-			$save = __( 'Save Addons', 'controlled-chaos-addon' );
+		if ( 'extended' == $active_tab ) {
+			$save = __( 'Save Extended', 'controlled-chaos-addon' );
 			return $save;
 		}
 

@@ -88,24 +88,29 @@ class Settings_Fields_Site {
 		 * @since 1.0.0
 		 */
 		add_settings_section(
-			'cca-site-addons',
+			'cca-site-extended',
 			sprintf(
 				'%1s %2s',
 				get_bloginfo( 'name' ),
-				__( 'Addons', 'controlled-chaos-addon' )
+				__( 'Extended Settings', 'controlled-chaos-addon' )
 			),
-			[],
-			'cca-site-addons'
+			[ $this, 'cca_field_section_extended_callback' ],
+			'cca-site-extended'
 		);
 
 		// Add a demo field to the new section.
 		add_settings_field(
-			'cca_demo_addon_field',
+			'cca_demo_extended_field',
 			__( 'Demo Field', 'controlled-chaos-addon' ),
-			[ $this, 'cca_demo_addon_field_callback' ],
-			'cca-site-addons',
-			'cca-site-addons',
+			[ $this, 'cca_demo_extended_field_callback' ],
+			'cca-site-extended',
+			'cca-site-extended',
 			[ esc_html__( 'Check this box', 'controlled-chaos-addon' ) ]
+		);
+
+		register_setting(
+			'cca-site-extended',
+			'cca_demo_extended_field'
 		);
 
 		/**
@@ -137,6 +142,27 @@ class Settings_Fields_Site {
 	}
 
 	/**
+	 * New tab section callback.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  array $args Extra arguments passed into the callback function.
+	 * @return mixed[]
+	 */
+	public function cca_field_section_extended_callback() {
+
+		$html = sprintf(
+			'<p class="description">%1s %2s %3s</p>',
+			esc_html( 'This demo tab was added by the', 'controlled-chaos-addon' ),
+			CCA_PARENT_NAME,
+			esc_html( 'plugin.', 'controlled-chaos-addon' )
+		);
+
+		echo $html;
+
+	}
+
+	/**
 	 * Demo field in the new section.
 	 *
 	 * @since  1.0.0
@@ -144,13 +170,13 @@ class Settings_Fields_Site {
 	 * @param  array $args Extra arguments passed into the callback function.
 	 * @return mixed[]
 	 */
-	public function cca_demo_addon_field_callback( $args ) {
+	public function cca_demo_extended_field_callback( $args ) {
 
-		$option = get_option( 'cca_demo_addon_field' );
+		$option = get_option( 'cca_demo_extended_field' );
 
-		$html = '<p><input type="checkbox" id="cca_demo_addon_field" name="cca_demo_addon_field" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html = '<p><input type="checkbox" id="cca_demo_extended_field" name="cca_demo_extended_field" value="1" ' . checked( 1, $option, false ) . '/>';
 
-		$html .= '<label for="cca_demo_addon_field"> '  . $args[0] . '</label></p>';
+		$html .= '<label for="cca_demo_extended_field"> '  . $args[0] . '</label></p>';
 
 		echo $html;
 
