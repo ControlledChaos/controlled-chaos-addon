@@ -67,9 +67,7 @@ class Settings_Fields_Site {
     public function __construct() {
 
 		// Register settings sections and fields.
-		if ( is_admin() ) {
-			add_action( 'admin_init', [ $this, 'settings' ], 11 );
-		}
+		add_action( 'admin_init', [ $this, 'settings' ], 11 );
 
 	}
 

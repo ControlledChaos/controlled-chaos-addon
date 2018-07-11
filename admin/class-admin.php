@@ -65,8 +65,19 @@ class Admin {
 	 */
 	public function __construct() {
 
-		// Add an about page for the plugin.
-        add_action( 'admin_menu', [ $this, 'settings_page' ] );
+		/**
+		 * Add an about page for the plugin if not hidden in settings.
+		 *
+		 * @since  1.0.0
+		 */
+
+		// Get the option to hide the settings page in the menu.
+		$menu_settings = get_option( 'cca_hide_addon_settings' );
+
+		// If the option is empty (unchecked).
+		if ( ! $menu_settings ) {
+			add_action( 'admin_menu', [ $this, 'settings_page' ] );
+		}
 
 	}
 
