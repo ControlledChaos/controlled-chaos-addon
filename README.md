@@ -15,3 +15,9 @@ Needs the [Controlled Chaos Plugin](https://github.com/ControlledChaos/controlle
 * This plugin was written on a local server running PHP 7.0
 * The short array syntax ( "[]" rather than "array()" ) requires PHP 5.4+
 * Run a modern setup and you'll be fine.
+
+## Features
+
+At this point the plugin doesn't do much. It is up to you to add your extended functionality. However, it does add the bones of a settings page and one option to hide that page in the admin menu. This option is displayed on the parent plugin's Site Settings page and can be used as an example for how to add setting to existing parent pages.
+
+Included is a proper directory structure and blank CSS and JavaScript files ready to use.
