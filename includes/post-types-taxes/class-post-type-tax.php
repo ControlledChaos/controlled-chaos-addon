@@ -1,31 +1,28 @@
 <?php
 /**
- * The core plugin class.
+ * Post types and taxonomies.
  *
  * @package    Controlled_Chaos_Addon
- * @subpackage Includes
+ * @subpackage Includes\Post_Types_Taxes
  *
  * @since      1.0.0
  * @author     Greg Sweet <greg@ccdzine.com>
  */
 
-namespace CC_Addon\Includes;
+namespace CC_Addon\Includes\Post_Types_Taxes;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// Get plugins path to check for active plugins.
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-
 /**
- * Define the core functionality of the plugin.
+ * Post types and taxonomies class.
  *
  * @since  1.0.0
  * @access public
  */
-class Init {
+class Post_Types_Taxes {
 
 	/**
 	 * Get an instance of the plugin class.
@@ -46,6 +43,7 @@ class Init {
 
 			// Get class dependencies.
 			$instance->dependencies();
+
 		}
 
 		// Return the instance.
@@ -58,30 +56,24 @@ class Init {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return self
+	 * @return void Constructor method is empty.
 	 */
 	public function __construct() {}
 
 	/**
-	 * Load the required dependencies for this plugin.
+     * Class dependency files.
 	 *
 	 * @since  1.0.0
 	 * @access private
 	 * @return void
-	 */
-	private function dependencies() {
+     */
+	public function dependencies() {
 
-		// Translation functionality.
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-i18n.php';
+		// Resister cutsom post types.
+		require_once plugin_dir_path( __FILE__ ) . 'class-register-post-types.php';
 
-		// Admin/backend functionality, scripts and styles.
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-admin.php';
-
-		// Frontend functionality, scripts and styles.
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'frontend/class-frontend.php';
-
-		// Post types and taxonomies.
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/post-types-taxes/class-post-type-tax.php';
+		// Resister cutsom taxonomies.
+		require_once plugin_dir_path( __FILE__ ) . 'class-register-taxonomies.php';
 
 	}
 
@@ -94,11 +86,11 @@ class Init {
  * @access public
  * @return object Returns an instance of the class.
  */
-function cca_init() {
+function ccp_types_taxes() {
 
-	return Init::instance();
+	return Post_Types_Taxes::instance();
 
 }
 
 // Run an instance of the class.
-cca_init();
+ccp_types_taxes();
