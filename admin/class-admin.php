@@ -80,10 +80,10 @@ class Admin {
 		}
 
 		// Enqueue backend styles. Uncomment to use.
-		// add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ] );
+		// add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_styles' ] );
 
 		// Enqueue backend scripts. Uncomment to use.
-		// add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+		// add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
 	}
 
