@@ -23,6 +23,6 @@ if ( ! defined( 'WPINC' ) ) {
 		esc_html__( 'needs the', 'controlled-chaos-addon' ),
 		esc_url( 'https://github.com/ControlledChaos/controlled-chaos-plugin' ),
 		esc_html( CCA_PARENT_NAME ),
-		esc_html__( 'to be installed and activated.' )
+		esc_html__( 'to be installed and activated.', 'controlled-chaos-addon' )
 	); ?>
 </div>
