@@ -56,7 +56,7 @@ if ( ! defined( 'CCA_PARENT' ) ) {
  * Do not include a trailing hyphen (-) or an trailibg underscore (_).
  *
  * @since  1.0.0
- * @return string Returns the prefix without.
+ * @return string Returns the prefix without trailing character.
  */
 if ( ! defined( 'CCA_PARENT_PREFIX' ) ) {
 	define( 'CCA_PARENT_PREFIX', 'ccp' );
