@@ -51,7 +51,7 @@ if ( ! defined( 'CCA_PARENT' ) ) {
  * Define the parent plugin prefix for filters and options.
  *
  * The default prefix of Controlled Chaos Plugin is `ccp`. If you
- * have rename the parent plugin the change the prefix here.
+ * have renamed the parent plugin the change the prefix here.
  *
  * Do not include a trailing hyphen (-) or an trailibg underscore (_).
  *
