@@ -2,8 +2,10 @@
 
 A WordPress starter plugin for building child or addon plugins.
 
-![WordPress](https://img.shields.io/wordpress/v/akismet.svg?style=flat-square)
-![PHP version](https://img.shields.io/php-eye/symfony/symfony.svg?style=flat-square)
+![WordPress tested on verion 4.9.8](https://img.shields.io/badge/WordPress-tested%204.9.8-0073aa.svg?style=flat-square)
+![PHP tested on version 7.2](https://img.shields.io/badge/PHP-tested%207.2-8892bf.svg?style=flat-square)
+
+![](https://raw.githubusercontent.com/ControlledChaos/controlled-chaos-plugin/master/controlled-chaos-github-banner.jpg)
 
 [Controlled Chaos Plugin](https://github.com/ControlledChaos/controlled-chaos-plugin) can be used as a base plugin for a WordPress multisite installation or otherwise related websites. This plugin is intended to be used as a site-specific plugin for functionality unique to sites running the parent plugin.
 
