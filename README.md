@@ -2,7 +2,7 @@
 
 A WordPress starter plugin for building child or addon plugins.
 
-![WordPress tested on verion 4.9.8](https://img.shields.io/badge/WordPress-tested%204.9.8-0073aa.svg?style=flat-square)
+![WordPress tested on version 5.0.0](https://img.shields.io/badge/WordPress-tested%205.0.0-0073aa.svg?style=flat-square)
 ![PHP tested on version 7.2](https://img.shields.io/badge/PHP-tested%207.2-8892bf.svg?style=flat-square)
 
 ![](https://raw.githubusercontent.com/ControlledChaos/controlled-chaos-plugin/master/assets/images/controlled-chaos-github-banner.jpg)

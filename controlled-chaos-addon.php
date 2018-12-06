@@ -4,24 +4,25 @@
  *
  * Change this header information to suit your needs.
  *
- * @package     Controlled_Chaos_Addon
- * @version     1.0.0
- * @author      Greg Sweet <greg@ccdzine.com>
- * @copyright   Copyright © 2018, Greg Sweet
- * @link        https://github.com/ControlledChaos/controlled-chaos-addon
- * @link        https://github.com/ControlledChaos/controlled-chaos-plugin
- * @license     GPL-3.0+ http://www.gnu.org/licenses/gpl-3.0.txt
+ * @package      Controlled_Chaos_Addon
+ * @version      1.0.0
+ * @author       Greg Sweet <greg@ccdzine.com>
+ * @copyright    Copyright © 2018, Greg Sweet
+ * @link         https://github.com/ControlledChaos/controlled-chaos-addon
+ * @link         https://github.com/ControlledChaos/controlled-chaos-plugin
+ * @license      GPL-3.0+ http://www.gnu.org/licenses/gpl-3.0.txt
  *
- * Plugin Name: Controlled Chaos Plugin Addon
- * Plugin URI:  https://github.com/ControlledChaos/controlled-chaos-addon
- * Description: Intended to extend Controlled Chaos Plugin.
- * Version:     1.0.0
- * Author:      Controlled Chaos Design
- * Author URI:  http://ccdzine.com/
- * License:     GPL-3.0+
- * License URI: https://www.gnu.org/licenses/gpl.txt
- * Text Domain: controlled-chaos-addon
- * Domain Path: /languages
+ * Plugin Name:  Controlled Chaos Plugin Addon
+ * Plugin URI:   https://github.com/ControlledChaos/controlled-chaos-addon
+ * Description:  Intended to extend Controlled Chaos Plugin.
+ * Version:      1.0.0
+ * Author:       Controlled Chaos Design
+ * Author URI:   http://ccdzine.com/
+ * License:      GPL-3.0+
+ * License URI:  https://www.gnu.org/licenses/gpl.txt
+ * Text Domain:  controlled-chaos-addon
+ * Domain Path:  /languages
+ * Tested up to: 5.0.0
  */
 
 // If this file is called directly, abort.
