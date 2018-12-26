@@ -51,7 +51,7 @@ if ( ! defined( 'CCA_PARENT' ) ) {
 /**
  * Define the parent plugin prefix for filters and options.
  *
- * The default prefix of Controlled Chaos Plugin is `ccp`. If you
+ * The default prefix of Controlled Chaos Plugin is `cca`. If you
  * have renamed the parent plugin then change the prefix here.
  *
  * Do not include a trailing hyphen (-) or an trailibg underscore (_).
@@ -60,7 +60,7 @@ if ( ! defined( 'CCA_PARENT' ) ) {
  * @return string Returns the prefix without trailing character.
  */
 if ( ! defined( 'CCA_PARENT_PREFIX' ) ) {
-	define( 'CCA_PARENT_PREFIX', 'ccp' );
+	define( 'CCA_PARENT_PREFIX', 'cca' );
 }
 
 /**
@@ -323,3 +323,37 @@ function controlled_chaos_addon_about_link( $links ) {
 }
 // Filter the default settings links with new array.
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'controlled_chaos_addon_about_link' );
+
+/**
+ * Check for Advanced Custom Fields.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return bool Returns true if the ACF free or Pro plugin is active.
+ */
+function cca_acf() {
+
+	if ( class_exists( 'acf' ) ) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Check for Advanced Custom Fields Pro.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return bool Returns true if the ACF Pro plugin is active.
+ */
+function cca_acf_pro() {
+
+	if ( class_exists( 'acf_pro' ) ) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
